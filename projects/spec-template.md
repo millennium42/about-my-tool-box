@@ -1,7 +1,7 @@
 # Template — Spec de Projeto / Feature
 
 Copie para `specs/<nome>.md` ao iniciar um projeto ou feature (Ralph Loop /spec).
-Preencha tudo antes de construir.
+Preencha tudo antes de construir. Base: https://github.com/snarktank/ralph.
 
 ```markdown
 # <Nome do Projeto / Feature>
@@ -22,8 +22,8 @@ Em 1–2 frases: o que resolve e para quem.
 - [ ] Critério verificável 1 (como provar que funciona)
 - [ ] Critério verificável 2
 
-## Stack (decisão)
-- Frontend:
+## Stack (decisão) — aplicar Ponytail
+- Frontend: (prefira stdlib/nativo)
 - Backend:
 - Banco:
 - Infra:
@@ -59,6 +59,12 @@ O que é, para quem, qual problema resolve.
 
 ## Stack
 - ...
+- Repositório: https://github.com/<org>/<repo> (se houver)
+
+## Ferramentas de IA conectadas
+- MCPs: ...
+- Graphify: sim/não (graphify-out/)
+- Ponytail/rtk/m1nd: sim/não
 
 ## Regras de negócio / Decisões
 - ...
@@ -70,4 +76,10 @@ O que é, para quem, qual problema resolve.
 \`\`\`bash
 ...
 \`\`\`
+
+## Artefatos obrigatórios (seed)
+- docs/contexto-operacional.md
+- AGENTS.md / CLAUDE.md
+- specs/
+- skills/ , workflows/
 ```

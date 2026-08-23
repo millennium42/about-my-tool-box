@@ -7,6 +7,7 @@ Mantenha genérico e reutilizável (sem segredos, sem paths de máquina específ
 # <Nome do MCP>
 
 **Status**: (ativo / em espera / verificado e2e)
+**Repositório oficial**: https://github.com/<org>/<repo>
 
 ## O que faz
 - Resumo de 1–2 linhas do que o servidor expõe.
@@ -21,7 +22,7 @@ Mantenha genérico e reutilizável (sem segredos, sem paths de máquina específ
 
 ## Pré-requisitos
 - Python/Node versão.
-- Pacotes necessários.
+- Pacotes necessários (ex.: fastmcp, crewai).
 
 ## Como usar
 1. Reiniciar a IA (discovery no startup).
@@ -33,7 +34,7 @@ Mantenha genérico e reutilizável (sem segredos, sem paths de máquina específ
 
 ## Comandos
 \`\`\`bash
-# registrar
+# registrar (CLI oficial, nunca patch no config)
 <mcp add ...>
 # testar
 <mcp test ...>
@@ -42,4 +43,31 @@ Mantenha genérico e reutilizável (sem segredos, sem paths de máquina específ
 ## Verificação (evidência de que funciona)
 - <status de teste>
 - <execução real comprovada>
+```
+
+---
+
+## Exemplo de preenchimento (CrewAI MCP)
+```markdown
+# CrewAI MCP
+**Status**: verificado e2e
+**Repositório oficial**: https://github.com/crewAIInc/crewAI
+
+## O que faz
+Expõe orquestração multiagente CrewAI como tools nativas da IA, usando um
+LLM OpenAI-compatível como backend de inferência (sem chave de provedor externa).
+
+## Ferramentas expostas
+- `run_crew`: executa crew declarativa. Args: task, agents, process, temperature, timeout.
+- `spawn_research_crew`: crew pronta de 3 agentes. Args: topic, depth (quick|standard).
+- `crewai_health`: status, modelo, auth (sem expor chave).
+
+## Como a autenticação funciona
+Lê em runtime HERMES_HOME/auth.json → agent_key + inference_base_url.
+Aponta LLM(base_url=..., api_key=agent_key). Modelo padrão via env HERMES_CREW_MODEL.
+
+## Pitfalls resolvidos
+1. mcp.run(transport="stdio", show_banner=False) — evita version-check no pypi.
+2. CREWAI_TRACING_ENABLED=false — evita prompt [y/N] que trava stdio.
+3. DNS intermitente → re-tentar com backoff.
 ```
