@@ -1,38 +1,51 @@
-# About My Tool Box
+# About My Tool Box — Base de Conhecimento
 
-Guia modular e **vivo** que consolida TUDO que eu conheço e uso de ferramentas,
-metodologias, filosofias de trabalho, plugins e integrações MCP.
+Repositório **genérico e reutilizável** usado como base de conhecimento pela IA
+ao iniciar **QUALQUER projeto novo (virgem)** — remoto (git) ou local.
 
-> Propósito: ser o ponto de partida para iniciar **QUALQUER** projeto — remoto (git)
-> ou local — sem precisar reexplicar contexto. É o meu "cérebro externo" de setup.
+> Não é um registro de projetos específicos: é um conjunto de princípios,
+> metodologias, catálogos de stack e templates que valem para qualquer projeto.
 
-## Quem Sou
-- **Nome**: Millani (Pablo / Millani)
-  - Email real: `codehouse42@gmail.com`
-  - WhatsApp Business: `55 55 99144-1700` (pareado e ativo)
-- **Nicho da agência**: Restaurantes / pequenos negócios em **Santa Maria / RS, Brasil**
-- **Expertise**: Software Engineering, Data, AI, automação de prospecção B2B
-- **Estilo de Comunicação**: DIRETO, pragmático, técnico, SEM enrolação.
-  Respondo em português. Prefiro execução até o fim sem confirmar a cada passo.
-- **Comando especial**: `continue` → retoma trabalho sem re-explicar.
+## Como usar este repo (ordem de leitura)
+1. `philosophies/` → princípios universais que DEVO seguir (YAGNI, qualidade,
+   compliance, finishing-the-job, verificação honesta).
+2. `methodologies/` → como executo (Ralph Loop, kickoff de projeto).
+3. `mcp_servers/` → o que conecto à IA para contexto de código + como wirear MCP.
+4. `plugins/` → catálogo de stack por camada (opções, não imposição).
+5. `projects/` → TEMPLATES para documentar o novo projeto (spec + checklist).
 
-## Como navegar este repo (modular)
-Cada pasta é independente. Para iniciar um projeto novo, leia:
-1. `philosophies/` → princípios que DEVO seguir (YAGNI, qualidade, LGPD, sem mock em prod).
-2. `methodologies/` → como executo (Ralph Loop, Humanizer, prospecção).
-3. `mcp_servers/` → o que conecto ao Hermes/Claude/OpenClaw para contexto de código.
-4. `plugins/` → stack base + ferramentas de IA que uso no dia a dia.
+## Perfil de Trabalho (como eu opero — reutilizável)
+- **Comunicação**: direta, pragmática, técnica, SEM enrolação.
+- **Idioma**: português.
+- **Execução**: prefiro executar até o fim sem confirmar a cada passo
+  (exceto ações destrutivas). Comando `continue` retoma sem re-explicar.
+- **Entrega**: artefato funcionando com output real de execução — não stub,
+  não plano bonito.
 
-## Stack canônica (o que eu uso de verdade)
-- **Containers**: Docker Compose (PostgreSQL, Redis, Google Maps Scraper, Crawl4AI)
-- **LLM**: Hermes Agent usando Nous (endpoint OpenAI-compat) — `tencent/hy3:free`
-- **Multiagente**: CrewAI como MCP do Hermes (sem chave externa)
-- **Operator/Gateway**: OpenClaw (Hermes como LLM)
-- **Prospecção B2B**: Google Maps Scraper local → Crawl4AI → Hermes qualifica → WhatsApp
-
-## Regras de ouro (não negociáveis)
-1. **Sem enrolação** — entrego resultado real, não plano bonito.
-2. **Finishing the job** — o entregável é artefato funcionando com output real de execução, não stub.
-3. **Nunca inventar dados** — leads, depoimentos, números: só real. (LGPD: zero PII em logs.)
-4. **Sem mock em produção** — migrations aplicadas não se editam; commit nunca quebra produção.
+## Regras de Ouro (não negociáveis, aplicáveis a qualquer projeto)
+1. **Sem enrolação** — resultado real, não descrição de resultado.
+2. **Finishing the job** — entrego artefato funcionando com output de execução real.
+3. **Nunca inventar dados** — dados de teste só reais ou claramente marcados.
+4. **Compliance** — zero PII em logs; sem mock em produção; migrations aplicadas
+   não se editam; commit nunca quebra produção.
 5. **Modular desde o nascimento** — código pronto pra escalar, documentação viva.
+6. **Verificação honesta** — não afirmo que algo funciona sem evidência real.
+
+## Estrutura
+```
+About-My-Tool-Box/
+├── README.md                     # Este arquivo
+├── philosophies/
+│   └── working-principles.md     # Princípios universais de trabalho
+├── methodologies/
+│   ├── ralph_loop.md             # Workflow padrão (spec→build→review→learn)
+│   └── project-kickoff.md        # Kickoff genérico de projeto novo
+├── mcp_servers/
+│   ├── mcp_catalog.md            # Catálogo de MCPs úteis + como wirear
+│   └── mcp-server-template.md    # Template p/ documentar um MCP
+├── plugins/
+│   └── stack-catalog.md          # Catálogo de stack por camada (opções)
+└── projects/
+    ├── spec-template.md          # Template de spec de feature/projeto
+    └── setup-checklist.md        # Checklist genérico de início
+```
