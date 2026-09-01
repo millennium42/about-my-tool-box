@@ -1,0 +1,29 @@
+name: Atualidade do catálogo
+
+on:
+  schedule:
+    - cron: "17 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter repositório
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Verificar links externos
+        run: python scripts/verify_repository.py --network
+      - name: Gerar relatório de fontes GitHub
+        run: python scripts/catalog_freshness.py
+      - name: Publicar relatório
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalog-freshness
+          path: reports/catalog-freshness.md

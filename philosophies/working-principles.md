@@ -1,69 +1,40 @@
-# Princípios de Trabalho (universais)
+# Princípios de trabalho
 
-Princípios que aplico em **qualquer** projeto. Regras operacionais, não teoria.
-Inspirados em Ponytail (YAGNI) e no ecossistema de agentes de
-https://github.com/DietrichGebert/ponytail.
+Princípios operacionais para projetos de software, dados e IA.
 
-## 1. Ponytail (YAGNI aplicado)
-> "The best code is the code you never wrote." — DietrichGebert/ponytail
+## YAGNI e simplicidade
 
-O agente deve pensar como o **dev sênior mais preguiçoso da sala**: resolver o
-problema com o menor esforço possível, preferindo recursos nativos a dependências.
+- Faça o menor trabalho que resolve o requisito real.
+- Prefira biblioteca padrão e recursos nativos antes de dependências.
+- Não adicione uma feature porque ela talvez seja útil depois.
+- Registre a exceção quando uma dependência adicional for necessária.
 
-- Codar o **mínimo necessário** que resolve o problema real.
-- Ordem de preferência para resolver algo:
-  `stdlib` > `dependência leve` > `implementação mínima própria`.
-- Marcar atalho intencional com comentário `ponytail:` para revisão futura.
-- Não adicionar feature "por via das dúvidas" — só o que o requisito pede.
-- Antes de instalar uma lib: perguntar "o stdlib/plataforma nativa já faz isso?".
+## Qualidade e entrega
 
-**Referência:** https://github.com/DietrichGebert/ponytail
-**Variantes do ecossistema:**
-- `m1nd` — primeira camada de orientação estrutural antes de grep/leitura ampla.
-- `rtk` — wrapper de shell; prefixar comandos com `rtk`; `rtk proxy` p/ raw output;
-  `rtk graphify query|path|explain` p/ navegar o grafo de código.
-- `probe` — revisão de código por IA em PRs (https://github.com/getprobe-dev/probe-extension).
+- Escreva critérios de aceite verificáveis antes da implementação.
+- Use teste antes da correção quando houver regressão reproduzível.
+- Trabalhe em recortes pequenos e faça review contra a spec.
+- Atualize código, testes, migrações, seeds e documentação que mudarem juntos.
+- Diferencie recorte técnico encerrado de integração ou produto ainda pendente.
 
-## 2. Qualidade de Código e Engenharia
-- **TDD quando fizer sentido** — em greenfield, RED-GREEN-REFACTOR. Em projeto
-  legado, teste antes de corrigir regressão.
-- **Modularidade desde o nascimento** — separar em pastas/responsabilidades claras.
-- **Documentação Viva** — documentar enquanto se constrói. Commits granulares
-  exigem atualizar `README.md` / `CLAUDE.md` / `skills.md` junto.
-- **Entregas (CI/CD)**: meta P0=0, P1=0 (zero bugs críticos/altos).
-  Commit **nunca** quebra o estado funcional de produção.
-- **Cobertura de testes** ≥ 80% onde fizer sentido.
+## Segurança e privacidade
 
-## 3. Segurança & Compliance
-- **Zero PII em logs** de sistema. Pseudonimizar (hash/links internos) quando precisar
-  rastrear, em vez de expor dado pessoal.
-- **Base legal** para contato/outreach B2B: interesse legítimo + opt-out obrigatório
-  e respeitado. (Ex.: LGPD Art. 7º II — adaptar à jurisdição do projeto.)
-- **Proibido em produção**:
-  - NUNCA usar mocks em ambiente de produção.
-  - NUNCA editar migrations de DB já aplicadas (só aditivas).
-  - NUNCA inventar dados (leads, depoimentos, números, endereços, notas).
-  - NUNCA expor API keys / tokens / senhas em doc ou commit.
+- Não publique segredos, PII ou dados inventados.
+- Não use mocks em produção.
+- Não edite uma migration já aplicada; crie uma migration aditiva.
+- Use menor privilégio, timeout, validação de entrada e logs sem dados sensíveis.
+- Para dados pessoais, defina finalidade, retenção, acesso, exclusão e base legal.
 
-## 4. Finishing the Job
-- O entregável é um **artefato funcionando com output real de execução**, não um stub.
-- Se uma tool/install/network falha e bloqueia o caminho real, digo HONESTAMENTE o
-  que falhou — não fabrico saída plausível.
-- Executo até o fim sem parar para confirmar a cada passo (exceto ações destrutivas).
+## Evidência
 
-## 5. Verificação Honesta
-- Não afirmo que X funciona sem evidência (execução real, log, status code).
-- Claims verificáveis (ex.: "número existe") exigem método comprovado — senão rotulo
-  como "alta probabilidade + verificação manual".
-- Diferenciar: output de ferramenta real ≠ suposição.
+- Não declare funcionamento sem execução, estado ou saída observável.
+- Separe provado, inferido, não verificado e bloqueado.
+- Uma execução verde valida apenas o escopo e o estado exercitados.
+- Preços, estoque, versões, popularidade e notícias precisam de data de consulta.
 
-## 6. Graphify como mapa persistente do projeto
-> https://github.com/Graphify-Labs/graphify
+## Comunicação
 
-Tratar o grafo de código como mapa persistente do projeto:
-- Construir cedo (`graphify extract . --out .`), consultar antes de navegação ampla,
-  manter fresco após mudanças (`graphify update .`).
-- `graphify query "<pergunta>"` para arquitetura/relacionamentos/dono de arquivo/fluxo.
-- `graphify path "<A>" "<B>"` para dependências/pontes entre conceitos.
-- `graphify explain "<conceito>"` para refresh focado.
-- ~160x mais eficiente que grep; menos falsos positivos.
+- Escreva em português claro, direto e natural.
+- Explique a decisão, o risco e a próxima ação.
+- Não prometa resultado que não possa ser entregue.
+- Em outreach, respeite recusa e mantenha um opt-out claro.

@@ -1,73 +1,44 @@
-# Template — Documentar um MCP Server
+# Template: documentar um servidor MCP
 
-Copie este arquivo para `mcp_servers/<nome>.md` sempre que criar/wirear um MCP.
-Mantenha genérico e reutilizável (sem segredos, sem paths de máquina específica).
+Copie esta estrutura para um arquivo específico do servidor:
 
 ```markdown
-# <Nome do MCP>
+# Nome do servidor
 
-**Status**: (ativo / em espera / verificado e2e)
-**Repositório oficial**: https://github.com/<org>/<repo>
+- **Status**: Em avaliação
+- **Fonte oficial**: link
+- **Versão validada**: versão e data
+- **Ambiente**: Windows, WSL2, Linux ou macOS
 
 ## O que faz
-- Resumo de 1–2 linhas do que o servidor expõe.
 
-## Ferramentas expostas
-- `tool_1`: descrição. Args: (listar).
-- `tool_2`: descrição. Args: (listar).
-
-## Como a autenticação funciona (runtime, sem hardcode)
-- Lê secrets de <env var> / <auth file> em runtime.
-- Aponta para <serviço> com <base_url> + <api_key de env>.
+Resumo curto e limites.
 
 ## Pré-requisitos
-- Python/Node versão.
-- Pacotes necessários (ex.: fastmcp, crewai).
 
-## Como usar
-1. Reiniciar a IA (discovery no startup).
-2. Pedir normalmente: "<exemplo de prompt que dispara a tool>".
+- runtime e versão;
+- dependências;
+- permissões e secrets necessários.
 
-## Pitfalls resolvidos (não repetir)
-1. ...
-2. ...
+## Instalação
 
-## Comandos
-\`\`\`bash
-# registrar (CLI oficial, nunca patch no config)
-<mcp add ...>
-# testar
-<mcp test ...>
-\`\`\`
+Comando oficial reproduzível.
 
-## Verificação (evidência de que funciona)
-- <status de teste>
-- <execução real comprovada>
+## Registro no cliente
+
+Use o mecanismo oficial do cliente. Não altere manualmente um arquivo protegido.
+
+## Uso mínimo
+
+Prompt ou chamada reproduzível.
+
+## Verificação
+
+Comando, saída observada e data.
+
+## Segurança e limites
+
+Dados enviados, hosts, diretórios, operações, timeout e custo.
 ```
 
----
-
-## Exemplo de preenchimento (CrewAI MCP)
-```markdown
-# CrewAI MCP
-**Status**: verificado e2e
-**Repositório oficial**: https://github.com/crewAIInc/crewAI
-
-## O que faz
-Expõe orquestração multiagente CrewAI como tools nativas da IA, usando um
-LLM OpenAI-compatível como backend de inferência (sem chave de provedor externa).
-
-## Ferramentas expostas
-- `run_crew`: executa crew declarativa. Args: task, agents, process, temperature, timeout.
-- `spawn_research_crew`: crew pronta de 3 agentes. Args: topic, depth (quick|standard).
-- `crewai_health`: status, modelo, auth (sem expor chave).
-
-## Como a autenticação funciona
-Lê em runtime HERMES_HOME/auth.json → agent_key + inference_base_url.
-Aponta LLM(base_url=..., api_key=agent_key). Modelo padrão via env HERMES_CREW_MODEL.
-
-## Pitfalls resolvidos
-1. mcp.run(transport="stdio", show_banner=False) — evita version-check no pypi.
-2. CREWAI_TRACING_ENABLED=false — evita prompt [y/N] que trava stdio.
-3. DNS intermitente → re-tentar com backoff.
-```
+Não coloque tokens, caminhos pessoais ou respostas sensíveis no exemplo.

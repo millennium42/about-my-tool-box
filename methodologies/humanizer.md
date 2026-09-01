@@ -1,42 +1,21 @@
-# Humanizer — Tom Humano em Comunicação Automatizada
+# Escrita humana
 
-Técnica/ferramenta para deixar copy, mensagens e textos gerados por IA com tom
-humano, sem jeito de robô. Base: https://github.com/blader/humanizer
-("Agent skill that removes signs of AI-generated writing..." — ⭐ 37k+).
+Um checklist para textos automatizados destinados a pessoas reais.
 
-## Quando usar
-- Qualquer texto que vá para humano real: e-mails de outreach, mensagens WhatsApp,
-  UX copy, respostas de suporte, posts.
-- Sempre que o texto "cheirar a IA" (lista de bullets genéricos, adjetivos vazios,
-  frases passivas, "como uma IA").
+## Aplicação
 
-## Como funciona (determinístico, não LLM)
-Aplicar transformações de substituição + estrutura:
-1. **Substituir jargão** por linguagem cotidiana.
-   Ex.: "poderíamos oferecer" → "acho que combinaria"; "nossos serviços" →
-   "o que a gente faz — sites, sistemas, automação"; "implementar" → "colocar pra rodar".
-2. **Quebrar parágrafos longos** em frases curtas com pausas naturais.
-3. **Remover robótica**: sem "como uma IA", sem encher de adjetivos, sem bullets vazios.
-4. **Personalizar a saudação** por nome/contexto (nunca genérico).
-5. **Fechar com leveza**: pergunta aberta ou "valeu", não "atenciosamente".
+1. Troque jargão por linguagem que o público realmente usa.
+2. Corte adjetivos vazios e frases que não acrescentam informação.
+3. Quebre parágrafos longos e varie o ritmo.
+4. Personalize saudação e contexto somente com dados autorizados.
+5. Termine com uma próxima ação clara e proporcional.
+6. Revise o texto para não prometer números, depoimentos ou resultados inventados.
 
-## Template de abordagem B2B (reutilizável)
-```
-Olá {nome}! Me chamo {seu_nome}, sou {seu_papel} da {empresa} ({site}).
+## Outreach
 
-Hoje trabalhamos com {o que vocês fazem resumido}.
+Identifique a pessoa e a organização corretamente, explique por que a mensagem é
+relevante e ofereça uma saída simples. Respeite imediatamente uma recusa e não
+reutilize dados além da finalidade informada.
 
-Estamos com uma campanha para {contexto do lead}, oferecendo {proposta curta}.
-Além da {entrega principal}, {diferencial: manutenção/consultoria}.
-
-Gostaria de agendar uma conversa para {objetivo}?
-
-Desde já agradeço!
-```
-Regra LGPD/compliance: incluir frase de opt-out ("Se não fizer sentido, me avisa
-que eu não te chamo novamente."). Respeitar recusa = bloqueio permanente.
-
-## Pitfalls de copy
-- Não prometer resultado que não se entrega ("aumente vendas em X%").
-- Não inventar depoimentos/números (ver `philosophies/working-principles.md` → regra 3).
-- Tom direto, útil, SEM robótico.
+Fonte de inspiração: [Humanizer](https://github.com/blader/humanizer). A técnica
+editorial desta página não prova a instalação ou o comportamento de uma ferramenta.

@@ -1,69 +1,89 @@
-# About My Tool Box — Base de Conhecimento
+# About My Tool Box
 
-Repositório **genérico e reutilizável** usado como base de conhecimento pela IA
-ao iniciar **QUALQUER projeto novo (virgem)** — remoto (git) ou local.
+Base de conhecimento pública, em português, para iniciar projetos de software e
+IA com decisões pequenas, verificáveis e fáceis de compartilhar.
 
-> Não é um registro de projetos específicos: é um conjunto de princípios,
-> metodologias, catálogos de stack e templates que valem para qualquer projeto.
-> Toda ferramenta citada aponta para o repositório oficial no GitHub.
+O repositório reúne princípios, metodologias, ferramentas, MCPs, perfis de stack e
+playbooks generalizados. Ele não impõe uma stack e não transforma uma referência
+interessante em recomendação sem instalação, uso mínimo e verificação registrados.
 
-## Como usar este repo (ordem de leitura)
-1. `philosophies/` → princípios universais que DEVO seguir.
-2. `methodologies/` → como executo (Ralph Loop, kickoff de projeto, Humanizer).
-3. `mcp_servers/` → o que conecto à IA para contexto de código + como wirear MCP.
-4. `plugins/` → catálogo de stack por camada (opções, não imposição).
-5. `projects/` → TEMPLATES para documentar o novo projeto (spec + checklist).
+## Comece por aqui
 
-## Perfil de Trabalho (como eu opero — reutilizável)
-- **Comunicação**: direta, pragmática, técnica, SEM enrolação.
-- **Idioma**: português.
-- **Execução**: prefiro executar até o fim sem confirmar a cada passo
-  (exceto ações destrutivas). Comando `continue` retoma sem re-explicar.
-- **Entrega**: artefato funcionando com output real de execução — não stub.
+Para iniciar um projeto novo, leia [o guia de primeiro projeto](guides/first-project.md)
+e use o perfil mais próximo do seu caso em [profiles/](profiles/). No Codex, uma
+mensagem inicial útil é:
 
-## Regras de Ouro (não negociáveis, aplicáveis a qualquer projeto)
-1. **Sem enrolação** — resultado real, não descrição de resultado.
-2. **Finishing the job** — entrego artefato funcionando com output de execução real.
-3. **Nunca inventar dados** — dados de teste só reais ou claramente marcados.
-4. **Compliance** — zero PII em logs; sem mock em produção; migrations aplicadas
-   não se editam; commit nunca quebra produção.
-5. **Modular desde o nascimento** — código pronto pra escalar, documentação viva.
-6. **Verificação honesta** — não afirmo que algo funciona sem evidência real.
-
-## Estrutura
-```
-About-My-Tool-Box/
-├── README.md                     # Este arquivo
-├── philosophies/
-│   └── working-principles.md     # Princípios universais de trabalho
-├── methodologies/
-│   ├── ralph_loop.md              # Workflow padrão (spec→build→review→learn)
-│   ├── project-kickoff.md         # Kickoff genérico de projeto novo
-│   └── humanizer.md               # Tom humano em comunicação automatizada
-├── mcp_servers/
-│   ├── mcp_catalog.md            # Catálogo de MCPs úteis + como wirear
-│   └── mcp-server-template.md    # Template p/ documentar um MCP
-├── plugins/
-│   └── stack-catalog.md          # Catálogo de stack por camada (opções)
-└── projects/
-    ├── spec-template.md           # Template de spec de feature/projeto
-    └── setup-checklist.md         # Checklist genérico de início
+```text
+Use https://github.com/millennium42/about-my-tool-box como guia.
+Leia README.md, guides/first-project.md e o perfil aplicável.
+Use somente ferramentas com status Verificada; trate as demais como referência.
+Antes de construir, produza a spec, as decisões de stack e os critérios de verificação.
 ```
 
-## Ecossistema de ferramentas referenciado (repos oficiais)
-| Ferramenta | Repositório oficial | Função |
+O mesmo fluxo pode ser adaptado para Claude Code, Cursor e outros agentes; consulte
+[a matriz de adaptação](guides/ai-agents.md).
+
+## O que existe neste repositório
+
+| Área | Conteúdo | Próximo arquivo |
 |---|---|---|
-| Ponytail (YAGNI) | https://github.com/DietrichGebert/ponytail | Agente age como "dev sênior preguiçoso"; não escreve código desnecessário |
-| m1nd / rtk / probe | https://github.com/DietrichGebert (toolset) | Orientação estrutural; wrapper de shell; revisão de PR |
-| Graphify | https://github.com/Graphify-Labs/graphify | Knowledge graph do código via AST (economia de tokens) |
-| Ralph Loop | https://github.com/snarktank/ralph | Loop autônomo de agente AI (spec→build→review→learn) |
-| Humanizer | https://github.com/blader/humanizer | Remove sinais de texto gerado por IA |
-| Superpowers | https://github.com/obra/superpowers | Framework de skills + método de dev de software |
-| Ruflo | https://github.com/ruvnet/ruflo | Meta-harness, swarms, memória HNSW |
-| CrewAI | https://github.com/crewAIInc/crewAI | Orquestração multiagente role-playing |
-| Crawl4AI | https://github.com/unclecode/crawl4ai | Web crawler LLM-friendly, open-source |
-| Google Maps Scraper | https://github.com/gosom/google-maps-scraper | Scraper local de Google Maps (alt. open ao Apify) |
-| MCP | https://github.com/modelcontextprotocol/modelcontextprotocol | Especificação e docs do Model Context Protocol |
-| Filament | https://github.com/filamentphp/filament | Framework UI open-source para Laravel |
-| Livewire | https://github.com/livewire/livewire | Full-stack framework para Laravel |
-| Twenty | https://github.com/twentyhq/twenty | Alternativa open ao Salesforce, feita para IA |
+| Princípios | YAGNI, segurança, escopo, documentação e evidência | [working-principles.md](philosophies/working-principles.md) |
+| Metodologias | Spec, build, review, aprendizado e escrita humana | [methodologies/](methodologies/) |
+| Catálogo | Ferramentas verificadas, em avaliação e referências | [tools.md](catalog/tools.md) |
+| MCP | Conceitos, seleção, configuração e template | [mcp-servers.md](catalog/mcp-servers.md) |
+| Perfis | Kits mínimos por tipo de projeto | [profiles/](profiles/) |
+| Playbooks | Procedimentos granulares e generalizados | [playbooks/](playbooks/) |
+| Skills | Instruções reutilizáveis para agentes | [skills/](skills/) |
+| Templates | Spec, checklist e documentação de MCP | [projects/](projects/) |
+| Qualidade | Checagem local, CI e atualização periódica | [verification.md](guides/verification.md) |
+
+## Regra de status
+
+- **Verificada**: instalação, uso mínimo e verificação foram executados e estão
+  descritos. É a única categoria recomendada por padrão.
+- **Em avaliação**: existe uma fonte oficial e uma hipótese de uso, mas ainda falta
+  evidência completa. Não deve ser instalada automaticamente.
+- **Referência**: tecnologia ou serviço útil para comparação, sem recomendação deste
+  catálogo.
+- **Arquivada**: mantida apenas para histórico ou porque não atende mais aos critérios.
+
+Uma fonte oficial acessível não prova que a ferramenta é segura, adequada ou mantida.
+Essas decisões precisam de evidência separada e de uma data de revisão.
+
+## Fluxo recomendado
+
+1. Entender objetivo, usuários, restrições e definição de concluído.
+2. Copiar [a spec](projects/spec-template.md) e escrever requisitos verificáveis.
+3. Escolher um [perfil mínimo](profiles/) e registrar exceções.
+4. Instalar apenas ferramentas **Verificadas** necessárias.
+5. Construir em unidades pequenas, com teste ou verificação antes da próxima unidade.
+6. Revisar contra a spec, atualizar a documentação e registrar evidências reais.
+7. Executar `python scripts/verify_repository.py` antes de abrir um pull request.
+
+## Regras de segurança
+
+- Nunca publique credenciais, tokens, PII, caminhos pessoais ou dados de clientes.
+- Use variáveis de ambiente e arquivos locais ignorados pelo Git.
+- Trate scraping, outreach, dados pessoais e integrações externas como áreas que
+  exigem análise jurídica e limites explícitos.
+- Não copie código de terceiros sem conferir licença e atribuição.
+- Não declare que algo funciona sem execução, saída ou evidência equivalente.
+
+Consulte [SECURITY.md](SECURITY.md) para reportar problemas no próprio catálogo.
+
+## Atualização e verificação
+
+O GitHub Actions verifica a estrutura e os links em cada alteração e executa uma
+checagem de atualidade semanal. A automação pode apontar uma fonte indisponível ou
+desatualizada, mas uma mudança de versão ou de recomendação ainda exige revisão
+humana. Consulte [a política de atualização](guides/maintenance.md).
+
+## Contribuição
+
+Contribuições são bem-vindas por pull request. Leia [CONTRIBUTING.md](CONTRIBUTING.md),
+use o template adequado e inclua a evidência da instalação, do uso mínimo e da
+verificação quando solicitar que uma ferramenta seja marcada como Verificada.
+
+## Licença
+
+Este repositório é distribuído sob a licença [MIT](LICENSE).

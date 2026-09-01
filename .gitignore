@@ -1,0 +1,18 @@
+# Sistemas operacionais e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Segredos e ambiente local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.token
+
+# Saídas de verificação
+reports/
+__pycache__/
+*.pyc

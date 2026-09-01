@@ -1,85 +1,55 @@
-# Template — Spec de Projeto / Feature
+# Template: spec de projeto ou feature
 
-Copie para `specs/<nome>.md` ao iniciar um projeto ou feature (Ralph Loop /spec).
-Preencha tudo antes de construir. Base: https://github.com/snarktank/ralph.
+Copie para `specs/<nome>.md` e preencha antes de construir.
 
 ```markdown
-# <Nome do Projeto / Feature>
+# Nome do projeto ou feature
 
 ## Objetivo
-Em 1–2 frases: o que resolve e para quem.
+O que resolve, para quem e qual resultado esperado.
 
 ## Requisitos indispensáveis
-- [ ] ...
-- [ ] ...
+- [ ] Requisito verificável 1
+- [ ] Requisito verificável 2
 
 ## Restrições
-- Stack obrigatória / proibida:
-- Jurídico/compliance (LGPD/GDPR/outro):
-- Prazo / orçamento:
+- Stack obrigatória ou proibida:
+- Ambiente suportado:
+- Dados, privacidade e compliance:
+- Prazo e orçamento:
 
-## Definição de "Concluído"
-- [ ] Critério verificável 1 (como provar que funciona)
-- [ ] Critério verificável 2
+## Definição de concluído
+- [ ] Critério observável 1 + como provar
+- [ ] Critério observável 2 + como provar
 
-## Stack (decisão) — aplicar Ponytail
-- Frontend: (prefira stdlib/nativo)
+## Stack decidida
+- Frontend:
 - Backend:
 - Banco:
 - Infra:
-- LLM/Agentes:
+- LLM/agentes:
+- Motivo das escolhas:
 
-## Decisões / Regras de negócio
+## Regras de negócio e decisões
 - Regra 1:
-- Regra 2:
+- Decisão 1 e alternativas descartadas:
 
-## Out of scope (explícito)
-- O que NÃO será feito nesta iteração.
+## Fora de escopo
+- O que não será feito nesta iteração.
 
-## Rejeição (P0/P1)
-- P0: qualquer bug crítico / dado inventado / quebra de produção.
-- P1: lentidão, a11y quebrada, CTA ineficaz.
+## Riscos e pendências
+- Risco, impacto, mitigação e responsável:
+
+## Plano de verificação
+- [ ] Testes automatizados
+- [ ] Verificação manual
+- [ ] Integração externa
+- [ ] Segurança e privacidade
+- [ ] Evidência visual, se aplicável
 ```
 
----
+## Registro do projeto ativo
 
-# Template — Documentar projeto ativo (preencher após kickoff)
-
-Copie para `projects/<nome>.md` quando o projeto estiver em andamento, para ser
-o "cérebro" dele em sessões futuras.
-
-```markdown
-# <Nome do Projeto>
-
-## Descrição
-O que é, para quem, qual problema resolve.
-
-## Status
-(ativo / concluído / em espera / R&D)
-
-## Stack
-- ...
-- Repositório: https://github.com/<org>/<repo> (se houver)
-
-## Ferramentas de IA conectadas
-- MCPs: ...
-- Graphify: sim/não (graphify-out/)
-- Ponytail/rtk/m1nd: sim/não
-
-## Regras de negócio / Decisões
-- ...
-
-## Pitfalls conhecidos (não repetir)
-1. ...
-
-## Como rodar
-\`\`\`bash
-...
-\`\`\`
-
-## Artefatos obrigatórios (seed)
-- docs/contexto-operacional.md
-- AGENTS.md / CLAUDE.md
-- specs/
-- skills/ , workflows/
-```
+Depois do kickoff, mantenha no próprio projeto um documento com status, stack real,
+decisões, comandos de execução, ferramentas conectadas, pitfalls e evidências. Não
+copie dados privados para este repositório público.
