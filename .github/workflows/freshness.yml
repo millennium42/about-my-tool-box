@@ -23,7 +23,7 @@ jobs:
       - name: Gerar relatório de fontes GitHub
         run: python scripts/catalog_freshness.py
       - name: Publicar relatório
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: catalog-freshness
           path: reports/catalog-freshness.md
