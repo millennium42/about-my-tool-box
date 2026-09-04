@@ -44,9 +44,10 @@ projeto antes de depender deles.
 
 ## CI hospedado
 
-O workflow multiplataforma do GitHub Actions executou com sucesso no commit
-`a6c608038c445eed1f150a21afb58acf6915d325` em 2026-09-01:
-[execução 33553093763](https://github.com/millennium42/about-my-tool-box/actions/runs/33553093763).
+O workflow multiplataforma do GitHub Actions executou com sucesso no commit raiz
+sanitizado `ae6707a7a48272de3c355abda1d39118542c5330` em 2026-09-04:
+[execução 33911252817](https://github.com/millennium42/about-my-tool-box/actions/runs/33911252817).
 
-Essa evidência prova o workflow de documentação naquele commit. A revisão atual só
-deve ser declarada validada após o CI do novo commit ficar verde.
+Os jobs de documentação passaram em `windows-latest`, `macos-latest` e
+`ubuntu-latest`. Essa evidência cobre o conteúdo sanitizado desse commit; cada nova
+alteração deve passar novamente por `.github/workflows/validate.yml`.
