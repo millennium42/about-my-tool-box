@@ -1,0 +1,29 @@
+name: Validar catálogo
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  documentation:
+    name: Documentação (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Obter repositório
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Configurar Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.x"
+      - name: Verificar estrutura, catálogo, privacidade e histórico
+        run: python scripts/verify_repository.py --history

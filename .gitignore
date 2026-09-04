@@ -1,0 +1,29 @@
+# Sistemas operacionais e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Segredos e ambiente local
+.env
+.env.*
+!.env.example
+.envrc
+*.pem
+*.key
+*.token
+*.p12
+*.pfx
+*.jks
+*.secret
+credentials.json
+service-account*.json
+secrets/
+*.sqlite
+*.sqlite3
+*.log
+
+# Saídas de verificação
+reports/
+__pycache__/
+*.pyc
